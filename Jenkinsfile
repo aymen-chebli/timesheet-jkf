@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('GIT') {
             steps {
-                git branch: 'master',
+                git branch: 'main',
                 url: 'https://github.com/aymen-chebli/timesheet-jkf.git'
             }
         }
