@@ -1,6 +1,7 @@
 pipeline {
     agent any
     tools {
+		jdk 'JAVA_HOME',
         maven 'M2_HOME'
     }
 
@@ -12,15 +13,9 @@ pipeline {
             }
         }
         
-        stage('clean') {
+        stage('Compile Stage') {
             steps {
-                sh 'mvn clean';
-            }
-        }
-        
-        stage('Compile') {
-            steps {
-                sh 'mvn compile';
+                sh 'mvn clean compile';
             }
         }
     }
