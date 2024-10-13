@@ -13,9 +13,15 @@ pipeline {
             }
         }
         
-        stage('Compile Stage') {
+        stage('CLEAN AND COMPILE STAGE') {
             steps {
                 sh 'mvn clean compile';
+            }
+        }
+		
+		stage('MVN SONARQUBE') {
+            steps {
+                sh 'mvn sonar:sonar';
             }
         }
     }
