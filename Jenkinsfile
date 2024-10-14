@@ -23,5 +23,17 @@ pipeline {
                 sh 'mvn sonar:sonar -Dsonar.login=sqa_69398ed610b6c6ed9df81e50d9c82630c276520d'
             }
         }
+		
+		stage('MVN BUILD') {
+            steps {
+                sh 'mvn package -DskipTests'
+            }
+        }
+		
+		stage('MVN DEPLOY') {
+            steps {
+                sh 'mvn deploy -DskipTests'
+            }
+        }
     }
 }
